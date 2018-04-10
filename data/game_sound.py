@@ -4,8 +4,10 @@ import pygame as pg
 from . import setup
 from . import constants as c
 
+
 class Sound(object):
     """Handles all sound for the game"""
+
     def __init__(self, overhead_info):
         """Initialize the class"""
         self.sfx_dict = setup.SFX
@@ -13,8 +15,6 @@ class Sound(object):
         self.overhead_info = overhead_info
         self.game_info = overhead_info.game_info
         self.set_music_mixer()
-
-
 
     def set_music_mixer(self):
         """Sets music for level"""
@@ -27,14 +27,13 @@ class Sound(object):
             pg.mixer.music.play()
             self.state = c.GAME_OVER
 
-
     def update(self, game_info, mario):
         """Updates sound object with game info"""
         self.game_info = game_info
         self.mario = mario
         self.handle_state()
 
-    def  handle_state(self):
+    def handle_state(self):
         """Handles the state of the soundn object"""
         if self.state == c.NORMAL:
             if self.mario.dead:
@@ -62,7 +61,7 @@ class Sound(object):
                 self.sfx_dict['count_down'].stop()
                 self.state = c.WORLD_CLEAR
 
-        elif self.state == c. TIME_WARNING:
+        elif self.state == c.TIME_WARNING:
             if pg.mixer.music.get_busy() == 0:
                 self.play_music('main_theme_sped_up', c.SPED_UP_NORMAL)
             elif self.mario.dead:
@@ -97,6 +96,3 @@ class Sound(object):
     def stop_music(self):
         """Stops playback"""
         pg.mixer.music.stop()
-
-
-
