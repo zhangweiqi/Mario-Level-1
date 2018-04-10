@@ -1,3 +1,17 @@
+#!/usr/bin/env python
+# coding=utf-8
+
+"""
+main_theme:游戏进行的主题音乐
+stage_clear:胜利音乐
+death:挂了的音乐
+out_of_time:超时
+game_over:游戏结束
+invincible:时间紧张
+main_theme_sped_up:加速的主题
+flagpole:旗杆
+"""
+
 __author__ = 'justinarmstrong'
 
 import pygame as pg
